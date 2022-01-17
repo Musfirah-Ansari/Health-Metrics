@@ -1,5 +1,5 @@
 .back-login {
-  background-image: url("login-bg.jpg");
+  background-image: url("backlogin.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
@@ -7,10 +7,62 @@
   top: 0;
   bottom: 0;
 }
+
+
+.back-dash {
+  background-image: url("backdash.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+.back-doctok {
+  background-image: url("doctokview.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+.back-emptok {
+  background-image: url("empdeptok.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+.back-deptok {
+  background-image: url("empdeptok.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+.back-rec {
+  background-image: url("rec.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
 .back {
   background: #e0e0e0;
   width: 100%;
-  height:100%;
+  height: 100%;
   position: absolute;
   top: 0;
   bottom: 0;
