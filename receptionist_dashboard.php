@@ -9,6 +9,8 @@ if($_SESSION["username"]=="admin")
 ?>
 <html>
 <head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 <style>
 a{
     text-decoration: inherit;
@@ -20,7 +22,7 @@ div{
     border-style: solid;
     padding: 20px;
     text-align: center;
-    background-color: lightgrey;
+    background-color:#c4e0e5;
     font-size: 30px
 }
 h3{
@@ -36,10 +38,14 @@ Doctor Appointment System
 </title>
 </head>
 <body>
+<div class="back-rec">
     <center>
         <h1>Receptionist Dashboard</h1>
     </center> 
     <a href='employee_token.php'><div><h3>EMPLOYEE TOKEN</h3></div></a>
     <a href='dependent_token.php'><div><h3>DEPENDENT TOKEN</h3></div></a>
+    <?php
+include("header.php");
+?></div>
 </body>
 </html>
