@@ -1,5 +1,5 @@
 <?php include('connections.php');
-
+include('header.php');
 error_reporting(0); ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -7,81 +7,44 @@ error_reporting(0); ?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="form.css">
-    <title>Health Metrics | Update Dependents</title>
+    <title>Document</title>
 </head>
 <body>
-  
-    <div class="container">
-    <div class="title"> Update Dependents</div>
-    <div class="content">
+
+        <h1 class="text-center text-primary "> Update Dependents</h1>
     
-     <form action="" method="post">
-        <div class="user-details">
-        <div class="input-box">
-            <span class="details">Employee ID</span>
-            <input type="number" name="dempid"  value=" <?php echo $data['EMPID'] ?>" disabled />
-          </div>
-          <div class="input-box">
-            <span class="details">Dependent ID</span>
-            <input type="number" name="did"  value=" <?php echo $did; ?>" disabled />
-          </div>
-   
-        
-    <div class="input-box">
-            <span class="details">First Name </span>
-            <input type="text" name="fname" value=" <?php echo $data['DEP_FNAME'] ?>"  /> e.g. Muhammad
-          </div>
-          <div class="input-box">
-            <span class="details">Last Name </span>
-            <input type="text" name="lname" value="<?php echo $data['DEP_LNAME'] ?>"/> e.g. Jan
-          </div>
-        
-          </div>
-        <div class="gender-details">
-          <input type="radio" name="gender" id="dot-1" <?php if($data['GENDER'] == "Male"){echo "checked"; $dgender="Male";}?> value="Male" />
-          <input type="radio" name="gender" id="dot-2" <?php if($data['GENDER'] == "Female"){echo "checked"; $dgender="Female";}?> value="Female"/>
-          
-          <span class="gender-title">Gender</span>
-          <div class="category">
-            <label for="dot-1">
-            <span class="dot one"></span>
-            <span class="gender">Male</span>
-          </label>
-          <label for="dot-2">
-            <span class="dot two"></span>
-            <span class="gender">Female</span>
-          </label>
-         
-          </div>
-        </div>
-        
-        <div class="input-box">
-            <span class="details">CNIC Number</span>
-            <input type="number" name="cnic" value=" <?php echo $data['DEP_CNIC'] ?>" /> XXXXXXXXXXXXX
-          </div>
-          <div class="input-box">
-            <span class="details">Date Of Birth</span>
-            <input type="text" placeholder="YYYY-MM-DD" name="dob"  value="<?php echo $data['DOB'] ?>"> e.g. 2001-02-25 
-          </div>
-         
-        <div class="button">
-        <input type="submit" value="Submit" name="submit" style="margin: -4px">>
-          <input type="button" value="Go back!" onclick="history.back()">
-        </div>
-      </form>
-    </div>
-  </div>
-        </div>
-        <?php 
+<?php 
     $did=$_GET['id'];
     $sql_select="select * from dependents where DEPID={$did}";
     $result_select=mysqli_query($conn,$sql_select);
     if(mysqli_num_rows($result_select)>0){
         while($data=mysqli_fetch_assoc($result_select)){
     ?>
-       
-       
+    <div class="row">
+        <div class="col-md-4"></div>
+<div class="col-md-4">
+    <form action="" method="post">
+    <div class="form-group"> <h6 class="font-weight-bold"> Employee ID </h6><input class="form-control" type="number" name="dempid"  value="<?php echo $data['EMPID'] ?>" disabled /> </div>
+        <div class="form-group"> <h6 for=""> Dependent ID </h6><input class="form-control" type="number" name="did" value="<?php echo $did; ?>" disabled /> </div>
+        <div class="form-group"> <h6 for=""> First Name </h6><input class="form-control" type="text" name="fname" value="<?php echo $data['DEP_FNAME'] ?>" /> <small class="form-text text-muted"> e.g. Muhammad </small></div>
+        <div class="form-group"> <h6 for="">Last Name</h6> <input class="form-control" type="text" name="lname" value="<?php echo $data['DEP_LNAME'] ?>"  /> <small class="form-text text-muted"> e.g. Jan </small></div>
+        <div class="form-group"> <h6 class="font-weight-bold" for="">Gender:</h6>  
+        <div class="form-check"><label class="form-check-label" for=""> Male</label>
+        <input class="form-check-input" type="radio" name="gender" value="Male" <?php if($data['GENDER'] == "Male"){echo "checked"; $dgender="Male";}?> value="Male"  /></div>
+        <div class="form-check"><label class="form-check-label" for=""> Female </label> 
+        <input class="form-check-input" type="radio" name="gender" value="Female"  <?php if($data['GENDER'] == "Female"){echo "checked"; $dgender="Female";}?> value="Female"/></div>
+        </div>
+        <div class="form-group"> <h6 class="font-weight-bold">CNIC</h6> <input class="form-control" type="number" name="cnic"  value=" <?php echo $data['DEP_CNIC'] ?>" /> <small class="form-text text-muted"> e.g. XXXXXXXXXXXXX </small></div>
+        <div class="form-group"> <h6 class="font-weight-bold">DOB</h6> <input class="form-control" type=text placeholder="YYYY-MM-DD" name="dob"  value="<?php echo $data['DOB'] ?>"/> <small class="form-text text-muted"> e.g. 2001-02-25 </small></div>
+        <div class="row">
+            <div class="col-md-12">
+        <input class="w-100 btn btn-outline-primary btn-block btn-lg" type="submit" name="submit" value="Update"/>
+        </div>
+        </div>
+        </form>
+    </div>
+    <div class="col-md-4"></div>
+    </div>
     <?php
         }
     }
@@ -106,7 +69,9 @@ error_reporting(0); ?>
         echo 'Data not Updated :(';
     }
     }
-   
+    else{
+        echo 'All Fields are required!';
+    }
 
     ?>
     
